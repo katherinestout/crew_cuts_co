@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer');
 
 
 //Form for email
-router.post('/form/api', (req, res) => {
+router.post('/form', (req, res) => {
     //console.log(req.body);
 
     nodemailer.createTestAccount((err, account) => {
@@ -28,15 +28,15 @@ router.post('/form/api', (req, res) => {
             port: 587,
             secure: false,
             auth: {
-                user: 'kailee.funk@ethereal.email',
-                pass: 'X6A6VqR8dZhQ2Sngcc'
+                user: 'selina.sawayn@ethereal.email',
+                 pass: 'fDQKWcp21c21dhTcdM'
             }
 
         });
 
         let mailOptions = {
             from: 'test@testaccount.com',
-            to: 'kailee.funk@ethereal.email',
+            to: 'selina.sawayn@ethereal.email',
             replyTo: 'test@testaccount.com',
             subject: 'New Message',
             text: req.body.message,
@@ -53,5 +53,6 @@ router.post('/form/api', (req, res) => {
     })
 
 });
+
 
 module.exports = router;
