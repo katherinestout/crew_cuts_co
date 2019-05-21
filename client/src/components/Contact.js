@@ -8,7 +8,6 @@ class Contact extends Component {
       this.state ={
         name: '',
         email: '',
-        phone: '',
         message: ''
       }
       this.handleChange = this.handleChange.bind(this);
@@ -55,8 +54,9 @@ validate = () => {
   
   
 
-  handleChange(event){
-    this.setState({ [event.target.name]: event.target.value });
+  handleChange = event =>{
+    this.setState({ [event.target.name]: event.target.value })
+    console.log(this.state);
       }
 
   async handleSubmit (event){
@@ -67,7 +67,6 @@ validate = () => {
 
   const {name, email, message} = this.state;
 
-
   const form = await axios.post('/form', {
     name,
     email,
@@ -77,11 +76,7 @@ validate = () => {
 }
 
    
-
   render() {
-
-
-
     return (
       <div>
         <h1>Contact</h1>

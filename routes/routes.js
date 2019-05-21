@@ -47,12 +47,12 @@ router.post('/form', (req, res) => {
             if(err){
                 return console.log(err)
             }
-            console.log('Message sent', info.message);
+            console.log('Message sent: %s', info.message);
             console.log('Message URL:', nodemailer.getTestMessageUrl(info));
         })
     })
 
-});
+})
 
 
 module.exports = router;
