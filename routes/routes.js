@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 
-
-
+require('dotenv').config();
 
 //Form for email
 router.post('/form', (req, res) => {
@@ -28,23 +27,23 @@ router.post('/form', (req, res) => {
             port: 587,
             secure: false,
             auth: {
-                user: 'selina.sawayn@ethereal.email',
-                 pass: 'fDQKWcp21c21dhTcdM'
+                user: process.env.EMAIL,
+                 pass: process.env.PASSWORD
             }
 
         });
 
         let mailOptions = {
             from: 'test@testaccount.com',
-            to: 'selina.sawayn@ethereal.email',
+            to: process.env.EMAIL,
             replyTo: 'test@testaccount.com',
-            subject: 'New Message',
+            subject: 'Crew Cuts Request',
             text: req.body.message,
             html: htmlEmail
         };
 
         transporter.sendMail(mailOptions, (err, info) => {
-            if(err){
+            if(err){ 
                 return console.log(err)
             }
             console.log('Message sent: %s', info.message);
@@ -52,7 +51,7 @@ router.post('/form', (req, res) => {
         })
     })
 
-})
+});
 
 
 module.exports = router;
