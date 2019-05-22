@@ -2,30 +2,23 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class Contact extends Component {
-    //set initial state
-    constructor(){
-      super();
-      this.state ={
-        name: '',
-        email: '',
-        message: '',
-        phone: '',
-        nameError: '',
-        messageError: '',
-        emailError: '',
-        phoneError: ''
-      }
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-      
-    }
 
-//clearing form when submitted, resetting state to initial state
-  handleFormReset = () => {
-    this.setState(() => this.initialState)
-  }
+  initialState = {
+    name: '',
+    email: '',
+    message: '',
+    phone: '',
+    nameError: '',
+    messageError: '',
+    emailError: '',
+    phoneError: ''
+};
+  state = this.initialState;
+ 
 
-//send email
+
+
+//axios post request to backend to send email
 sendEmail = () => {
   const {name, email, message, phone} = this.state;
 
@@ -36,6 +29,11 @@ sendEmail = () => {
     phone
   }).then(this.handleFormReset());
    
+}
+
+//clearing form when submitted, resetting state to initial state
+handleFormReset = () => {
+  this.setState(() => this.initialState)
 }
 
 //error handling for blank form inputs
@@ -66,16 +64,15 @@ validate = () => {
        };
   
   
-
+//handles changes in inputs
   handleChange = event =>{
     this.setState({ [event.target.name]: event.target.value })
-    console.log(this.state);
       }
 
-  handleSubmit (event){
+  handleSubmit = (event) => {
       event.preventDefault();
       const isValid = this.validate();
-  //if it passed validation then sendEmail\
+  //if it passed validation then sendEmail
     if(isValid){
       this.sendEmail();
     }
@@ -93,6 +90,7 @@ validate = () => {
             name="name"
             type="text"
             onChange={this.handleChange}
+            value = {this.state.name}
             />
 
             <div className="error">{this.state.nameError}</div>
@@ -102,6 +100,7 @@ validate = () => {
             name="email"
             type="email"
             onChange={this.handleChange}
+            value={this.state.email}
             />
              <div className="error">{this.state.emailError}</div>
 
@@ -110,6 +109,7 @@ validate = () => {
             name="phone"
             type="integer"
             onChange={this.handleChange}
+            value={this.state.phone}
             />
             <div className="error">{this.state.phoneError}</div>
 
@@ -118,6 +118,7 @@ validate = () => {
             name="message"
             type="textarea"
              onChange={this.handleChange}
+             value={this.state.message}
              />
               <div className="error">{this.state.messageError}</div>
 
