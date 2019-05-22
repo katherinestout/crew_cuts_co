@@ -10,6 +10,7 @@ router.post('/form', (req, res) => {
 
     nodemailer.createTestAccount((err, account) => {
         const htmlEmail = `
+        <h2>Crew Cuts Email Notification</h2>
         <h3>Contact Details</h3>
         <ul>
             <li>Name: ${req.body.name}</li>
@@ -24,9 +25,7 @@ router.post('/form', (req, res) => {
         //mail options
 
         let transporter = nodemailer.createTransport({
-            host: 'smtp.ethereal.email',
-            port: 587,
-            secure: false,
+            service: 'gmail',
             auth: {
                 user: process.env.EMAIL,
                  pass: process.env.PASSWORD
@@ -35,20 +34,21 @@ router.post('/form', (req, res) => {
         });
 
         let mailOptions = {
-            from: 'test@testaccount.com',
+            from: 'test@gmail.com',
             to: process.env.EMAIL,
-            replyTo: 'test@testaccount.com',
+            replyTo: 'test@gmail.com',
             subject: 'Crew Cuts Request',
             text: req.body.message,
             html: htmlEmail
         };
 
-        transporter.sendMail(mailOptions, (err, info) => {
+        transporter.sendMail(mailOptions, (err) => {
             if(err){ 
-                return console.log(err)
+                return console.log(err, 'There was an error!')
             }
-            console.log('Message sent: %s', info.message);
-            console.log('Message URL:', nodemailer.getTestMessageUrl(info));
+            console.log('Message sent:');
+            
+           // console.log('Message URL:', nodemailer.getTestMessageUrl(info));
         })
     })
 
