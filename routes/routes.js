@@ -4,10 +4,8 @@ const nodemailer = require('nodemailer');
 
 require('dotenv').config();
 
-//Form for email
+//Post request/ Form for email
 router.post('/form', (req, res) => {
-    //console.log(req.body);
-
     nodemailer.createTestAccount((err, account) => {
         const htmlEmail = `
         <h2>Crew Cuts Email Notification</h2>
@@ -47,8 +45,6 @@ router.post('/form', (req, res) => {
                 return console.log(err, 'There was an error!')
             }
             console.log('Message sent:');
-            
-           // console.log('Message URL:', nodemailer.getTestMessageUrl(info));
         })
     })
 

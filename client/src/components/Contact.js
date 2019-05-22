@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class Contact extends Component {
-
+//setting initial state
   initialState = {
     name: '',
     email: '',
@@ -13,7 +13,9 @@ class Contact extends Component {
     emailError: '',
     phoneError: ''
 };
-  state = this.initialState;
+
+//state
+state = this.initialState;
  
 
 
@@ -64,15 +66,17 @@ validate = () => {
        };
   
   
-//handles changes in inputs
+//changes in inputs
   handleChange = event =>{
     this.setState({ [event.target.name]: event.target.value })
       }
 
+//submit
   handleSubmit = (event) => {
       event.preventDefault();
       const isValid = this.validate();
-  //if it passed validation then sendEmail
+
+  //if inputs passed validation then sendEmail
     if(isValid){
       this.sendEmail();
     }
