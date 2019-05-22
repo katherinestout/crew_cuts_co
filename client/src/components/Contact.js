@@ -8,7 +8,8 @@ class Contact extends Component {
       this.state ={
         name: '',
         email: '',
-        message: ''
+        message: '',
+        phone: ''
       }
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -65,12 +66,13 @@ validate = () => {
         //const isValid = this.validate();
   //if it passed validation then sendEmail
 
-  const {name, email, message} = this.state;
+  const {name, email, message, phone} = this.state;
 
   const form = await axios.post('/form', {
     name,
     email,
-    message
+    message,
+    phone
   }).then(console.log("yay"));
     console.log(form);
 }
@@ -81,8 +83,8 @@ validate = () => {
       <div>
         <h1>Contact</h1>
         <form onSubmit = {this.handleSubmit}>
+          
             <label>Name:</label>
-
             <input 
             name="name"
             type="text"
@@ -92,7 +94,6 @@ validate = () => {
             <div className="error">{this.state.nameError}</div>
 
             <label>Email:</label>
-
             <input   
             name="email"
             type="email"
@@ -100,8 +101,15 @@ validate = () => {
             />
              <div className="error">{this.state.emailError}</div>
 
-            <label>Message:</label>
+            <label>Phone:</label>
+            <input
+            name="phone"
+            type="number"
+            onChange={this.handleChange}
+            />
+            <div className="error">{this.state.phoneError}</div>
 
+            <label>Message:</label>
             <textarea
             name="message"
             type="textarea"
