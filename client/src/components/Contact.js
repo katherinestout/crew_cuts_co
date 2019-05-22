@@ -9,7 +9,11 @@ class Contact extends Component {
         name: '',
         email: '',
         message: '',
-        phone: ''
+        phone: '',
+        nameError: '',
+        messageError: '',
+        emailError: '',
+        phoneError: ''
       }
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,13 +21,21 @@ class Contact extends Component {
     }
 
 //clearing form when submitted, resetting state to initial state
- /* handleFormReset = () => {
+  handleFormReset = () => {
     this.setState(() => this.initialState)
-  }*/
+  }
 
 //send email
 sendEmail = () => {
-    console.log("hey");
+  const {name, email, message, phone} = this.state;
+
+  axios.post('/form', {
+    name,
+    email,
+    message,
+    phone
+  }).then(this.handleFormReset());
+   
 }
 
 //error handling for blank form inputs
@@ -60,21 +72,13 @@ validate = () => {
     console.log(this.state);
       }
 
-  async handleSubmit (event){
+  handleSubmit (event){
       event.preventDefault();
-
-        //const isValid = this.validate();
-  //if it passed validation then sendEmail
-
-  const {name, email, message, phone} = this.state;
-
-  const form = await axios.post('/form', {
-    name,
-    email,
-    message,
-    phone
-  }).then(console.log("yay"));
-    console.log(form);
+      const isValid = this.validate();
+  //if it passed validation then sendEmail\
+    if(isValid){
+      this.sendEmail();
+    }
 }
 
    
@@ -83,7 +87,7 @@ validate = () => {
       <div>
         <h1>Contact</h1>
         <form onSubmit = {this.handleSubmit}>
-          
+
             <label>Name:</label>
             <input 
             name="name"
@@ -104,7 +108,7 @@ validate = () => {
             <label>Phone:</label>
             <input
             name="phone"
-            type="number"
+            type="integer"
             onChange={this.handleChange}
             />
             <div className="error">{this.state.phoneError}</div>
