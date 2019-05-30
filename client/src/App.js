@@ -1,11 +1,10 @@
 import React from 'react';
-import Contact from './components/contact/Contact';
+import Email from './components/email/Email';
 
 function App() {
   return (
     <div className="App">
-      <Contact/>
-  
+<Email/>
     </div>
   );
 }
