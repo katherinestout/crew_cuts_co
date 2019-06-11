@@ -1,11 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import MissionData from './missionstatement.json';
+//import MissionStatement from './MissionStatement';
 
-export default class Header extends Component {
+class Header extends Component {
+
     render() {
         return (
-            <div>
-                
+            <div className="header">
+                <h1>DC, Maryland, Virginia</h1>
+
+                   {
+                       MissionData.map((mission, index) => {
+                           return <h1>{mission.missionstatement}</h1>
+
+                       })
+                   }
+                   
             </div>
         )
     }
 }
+
+export default Header;
