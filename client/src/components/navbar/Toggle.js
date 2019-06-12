@@ -17,8 +17,8 @@ class Toggle extends Component {
         return (
 
             <div className="toggle">
-                  <i class="fas fa-bars"
-                   onClick = {this.toggle}></i>
+                  <i class="far fa-caret-square-down"
+                   onClick = {this.toggle}> Menu</i>
                    {this.state.on && this.props.children} 
                  
          

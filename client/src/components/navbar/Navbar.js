@@ -7,7 +7,7 @@ class Navbar extends Component {
         return (
 
 
-                <div className="navbar">
+                <div className="navbar card">
                     <ul>
                         <li>Contact</li>
                         <li>Reviews</li>
