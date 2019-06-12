@@ -1,40 +1,32 @@
 import React, { Component } from 'react';
-import './../style/navbar.css';
+//import './../style/navbar.css';
 
 class Navbar extends Component {
 
 
-//for collapsable nav
-myFunction(){
-    const x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
-}
-
     render() {
         return (
-            <div className="navbar">
-                <div className="topnav"
-                id = "myTopnav">
-
-                    <div className="nav-container">
-                        <a>Contact</a>
-                        <a>Reviews</a>
-            <a>
-
-            <i class="fas fa-bars"></i>
-            </a>
-   
 
 
+                <div className="dropdown">
+                    <button type="button"
+                    className="btn btn-danger dropdown-toggle"
+                    data-toggle="dropdown" 
+                    aria-haspopup="true" 
+                    aria-expanded="false"
+                    id="dropdownMenuButton">
+
+                   dropdown
+                    </button>
+
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a className="dropdown-item">Contact</a>
+                        <a className="dropdown-item">Reviews</a>
                     </div>
 
                 </div>
                 
-            </div>
+  
         )
     }
 }
