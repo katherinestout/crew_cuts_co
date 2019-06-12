@@ -1,0 +1,25 @@
+/*For navbar*/
+
+.nav-container {
+    margin-right: 10%;
+
+}
+
+.topnav {
+    padding: 2%;
+    overflow: hidden;
+    background: #8FBC8F;
+}
+.topnav a {
+    float: left;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 20px; 
+   margin-left: 5%;
+ 
+}
+.topnav .icon {
+    display: none;
+  }
