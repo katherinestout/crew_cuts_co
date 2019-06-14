@@ -6,8 +6,8 @@ class Services extends Component {
     render() {
         return (
             <div className="services">
-                {ServiceData.map((y, index) => {
-                    return <h2>{y.generallabor}</h2>
+                {ServiceData.map((service, index) => {
+                    return <h2>{service.generallabor}</h2> 
                 })}
 
             </div>
