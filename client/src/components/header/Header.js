@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MissionData from './missionstatement.json';
-//import MissionStatement from './MissionStatement';
+import './../style/header.css';
 
 class Header extends Component {
 
@@ -11,8 +11,8 @@ class Header extends Component {
 
                    {
                        MissionData.map((mission, index) => {
-                           return <h1>{mission.missionstatement}</h1>
-
+                           return <h1 key="mission.missionstatement">
+                           {mission.missionstatement}</h1>
                        })
                    }
                    

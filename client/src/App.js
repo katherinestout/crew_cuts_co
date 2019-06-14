@@ -6,6 +6,7 @@ import Email from './components/email/Email';
 import Footer from './components/footer/Footer';
 import Toggle from './components/navbar/Toggle';
 //import Navbar from './components/navbar/Navbar';
+import './App.css';
 
 function App() {
   return (

@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './../style/reviews.css';
 
-export default class Reviews extends Component {
+class Reviews extends Component {
     render() {
         return (
-            <div>
+            <div className="reviews">
                 
             </div>
         )
     }
 }
+export default Reviews;

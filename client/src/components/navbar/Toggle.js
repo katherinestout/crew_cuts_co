@@ -24,7 +24,7 @@ class Toggle extends Component {
             </div>
 
             <div className="nav-right">
-            <i class="far fa-caret-square-down"
+            <i className="far fa-caret-square-down"
             onClick = {this.toggle}> Menu</i>
              
                  {this.state.on && (

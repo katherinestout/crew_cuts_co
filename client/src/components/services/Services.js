@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './../style/services.css';
 
 class Services extends Component {
     render() {
         return (
-            <div>
+            <div className="services">
                 
             </div>
         )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './../style/email.css';
 
 class Email extends Component {
 //setting initial state
@@ -85,7 +86,7 @@ validate = () => {
    
   render() {
     return (
-      <div>
+      <div className="email">
         <h1>Contact</h1>
         <form onSubmit = {this.handleSubmit}>
 
