@@ -9,12 +9,7 @@ class Header extends Component {
             <div className="header">
                 <h1>DC, Maryland, Virginia</h1>
 
-                   {
-                       MissionData.map((mission, index) => {
-                           return <h1 key="mission.missionstatement">
-                           {mission.missionstatement}</h1>
-                       })
-                   }
+                   {MissionData.missionstatement}
                    
             </div>
         )

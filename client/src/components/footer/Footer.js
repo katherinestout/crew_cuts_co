@@ -12,6 +12,13 @@ class Footer extends Component {
                            {contact.members}</h1>
                        })
                    }
+
+                {ContactData[1]['phone']}
+                
+                {ContactData[2]['email']}
+
+
+                
             </div>
         )
     }

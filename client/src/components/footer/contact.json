@@ -4,7 +4,7 @@
      "Jesse Stout",
      "Billy Madden",
      "Jesse Turcious"
- ],
- "phone": "240-606-5213",
- "email": "crewcutsco@gmail.com"
-}]
+ ]},
+ { "phone": "240-606-5213"},
+ {"email": "crewcutsco@gmail.com"}
+ ]
