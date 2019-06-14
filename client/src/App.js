@@ -5,15 +5,14 @@ import Reviews from './components/reviews/Reviews';
 import Email from './components/email/Email';
 import Footer from './components/footer/Footer';
 import Toggle from './components/navbar/Toggle';
-import Navbar from './components/navbar/Navbar';
+//import Navbar from './components/navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
 
-<Toggle>
- <Navbar></Navbar>
-</Toggle>
+<Toggle/>
+
 <Header/>
 <Services/>
 <Reviews/>

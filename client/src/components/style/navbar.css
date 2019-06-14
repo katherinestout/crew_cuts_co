@@ -1,12 +1,32 @@
 .toggle {
     background: #8FBC8F;
+    height: 50px;
 }
 
 ul {
     list-style-type: none;
+    padding: 10px;
 }
 
 .card{
     background: white;
+    width: 100%;
+    
 
 }
+
+
+/*CSS Grid Layout Navbar*/
+
+.wrapper-nav {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.nav-left{
+    text-align: left;
+    }
+    
+.nav-right{
+    text-align: right;
+    }
